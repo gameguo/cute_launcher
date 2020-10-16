@@ -1,6 +1,6 @@
 const { app, BrowserWindow } = require('electron')
 
-function createWindow () {   
+function createWindow () {
     // 创建浏览器窗口
     const win = new BrowserWindow({
         width: 800,
@@ -13,7 +13,7 @@ function createWindow () {
     win.loadFile('src/index.html')
 
     // 打开开发者工具
-    win.webContents.openDevTools()
+    //win.webContents.openDevTools()
 }
 
 // Electron会在初始化完成并且准备好创建浏览器窗口时调用这个方法
@@ -36,6 +36,6 @@ app.on('activate', () => {
       createWindow()
     }
 })
-  
+
 // 您可以把应用程序其他的流程写在在此文件中
 // 代码 也可以拆分成几个文件，然后用 require 导入。
