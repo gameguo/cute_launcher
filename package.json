@@ -1,10 +1,23 @@
 {
-  "name": "electron_launcher",
+  "name": "cute_launcher",
   "version": "1.0.0",
-  "description": "electron_launcher",
+  "description": "cute_launcher",
   "main": "main.js",
   "build": {
+    "productName": "cute_launcher",
     "appId": "com.gameguo.cutelauncher",
+    "copyright": "gameguo",
+    "compression": "store",
+    "asar": false,
+    "directories": {
+      "output": "build"
+    },
+    "extraResources": [
+      {
+        "from": "./README.md",
+        "to": "./README.md"
+      }
+    ],
     "mac": {
       "target": [
         "dmg",
@@ -12,10 +25,29 @@
       ]
     },
     "win": {
+      "icon": "app.ico",
+      "extraResources": [
+        {
+          "from": "./README.md",
+          "to": "./README.md"
+        }
+      ],
       "target": [
         "nsis",
         "zip"
       ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": true,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "./app.ico",
+      "uninstallerIcon": "./app.ico",
+      "installerHeaderIcon": "./app.ico",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Cute Launcher"
     }
   },
   "scripts": {

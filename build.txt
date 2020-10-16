@@ -5,6 +5,62 @@ npm install -g yarn
 
 npm install electron-builder -g
 
+"build": {
+    "productName": "cute_launcher", // 项目名 exe名
+    "appId": "com.gameguo.cutelauncher",
+    "copyright": "gameguo",
+    "compression": "store", // store normal maximum  store相对较快
+    "asar": false,
+    "directories": {
+      "output": "build"
+    },
+    "extraResources": { // 拷贝dll等静态文件到指定位置
+      "from": "./app-update.yml",
+      "to": "./b.txt"
+    },
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ]
+    },
+    "win": {
+      "icon": "app.ico",
+      "extraResources": {
+        "from": "./app-update.yml",
+        "to": "./b.txt"
+      },
+      "target": [
+        "nsis",
+        "zip"
+      ],
+      "arch": [
+        "ia32",
+        "x64"
+      ]
+    }
+    "nsis":{
+      "oneClick":false, // 一键安装
+      //"guid":"", // 注册表名 不推荐修改
+      "perMachine": true, // 是否开启安装时权限限制(此电脑或当前用户)
+      "allowElevation": true, // 允许请求提示。如果为false，则用户必须使用提升的权限重新启动安装程序
+      "allowToChangeInstallationDirectory": true, // 允许修改安装路径
+      "installerIcon": "./build/icons/aaa.ico", // 安装图标
+      "uninstallerIcon": "./build/icons/bbb.ico", // 卸载图标
+      "installerHeaderIcon": "./build/icons/aaa.ico", // 安装时头部图标
+      "createDesktopShortcut": true, //创建桌面图标
+      "createStartMenuShortcut": true, // 创建开始菜单图标
+      "shortcutName": "Cute Launcher" // 图标名称
+    }
+
+npm install electron-packager -g
+
+"package": "electron-packager ./ cute_launcher --all --out ./build --electron-version 4.0.1 --overwrite --icon=./static/img/logo.ico"
+
+"package": "electron-packager ./ cute_launcher --all --out=./build --asar --overwrite --icon=./app.ico --app-version=0.0.1"
+
+electron-packager . 'HelloWorld' --platform=win32 --arch=x64 --icon=icon.ico --out=./out --asar --app-version=0.0.1
+
 Yarn 淘宝源安装
 yarn config set registry https://registry.npm.taobao.org -g
 yarn config set sass_binary_site http://cdn.npm.taobao.org/dist/node-sass -g
