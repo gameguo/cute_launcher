@@ -3,6 +3,23 @@
   "version": "1.0.0",
   "description": "cute_launcher",
   "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win --x64"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gameguo/electron_launcher.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gameguo/electron_launcher/issues"
+  },
+  "homepage": "https://github.com/gameguo/electron_launcher#readme",
+  "devDependencies": {
+    "electron": "^10.1.3"
+  },
   "build": {
     "productName": "cute_launcher",
     "appId": "com.gameguo.cutelauncher",
@@ -49,22 +66,5 @@
       "createStartMenuShortcut": true,
       "shortcutName": "Cute Launcher"
     }
-  },
-  "scripts": {
-    "start": "electron .",
-    "build": "electron-builder --win --x64"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gameguo/electron_launcher.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/gameguo/electron_launcher/issues"
-  },
-  "homepage": "https://github.com/gameguo/electron_launcher#readme",
-  "devDependencies": {
-    "electron": "^10.1.3"
   }
 }
